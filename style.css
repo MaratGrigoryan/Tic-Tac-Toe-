@@ -1,0 +1,28 @@
+
+.ai{
+    background-image: url("ai.jpg");
+}
+
+.player{
+    background-image: url("player.jpg");
+}
+
+.actions{
+    text-align: center;
+}
+
+.container{
+    margin: 50px auto;
+    width: 300px;
+}
+
+.cell{
+    border: 2px solid #97cd77;
+    float: left;
+    height: 96px;
+    width: 96px;
+}
+ 
+.cell:hover{
+    border-color: red;
+}
