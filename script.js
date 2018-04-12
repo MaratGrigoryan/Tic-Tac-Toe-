@@ -84,7 +84,6 @@ function checkEnd(){
                 return true;
             }
         }
-
         //check diagonals
        for(var i = 0 ; i <= number ; i++ ) {
         if(t[i] !== undefined && t[i] === t[i + nume + 1] && t[i + nume + 1] === t[i + 2 * nume + 2]) {
