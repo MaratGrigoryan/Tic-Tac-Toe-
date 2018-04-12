@@ -40,6 +40,7 @@ this.result = [];
 function checkEnd(){
     var nume = parseInt(num)
         //check rows
+        if(nume > 3){
         for(var i = 0; i <= number; i++) {
             if(t[i] !== undefined && t[i] === t[i + 1] && t[i + 1] === t[i + 2] && t[i + 2] === t[i + 3]) {
                console.log("check rows")
@@ -68,6 +69,37 @@ function checkEnd(){
             return true;
             }
         }
+    }
+    else{
+        for(var i = 0; i <= number; i++) {
+            if(t[i] !== undefined && t[i] === t[i + 1] && t[i + 1] === t[i + 2]) {
+               console.log("check rows")
+                return true;
+            }
+        }
+        //check columns
+        for(var i = 0; i <= number; i++) {
+            if(t[i] !== undefined && t[i] === t[i + nume] && t[i + nume] === t[i + 2 * nume]) {
+               console.log('check columns' )
+                return true;
+            }
+        }
+
+        //check diagonals
+       for(var i = 0 ; i <= number ; i++ ) {
+        if(t[i] !== undefined && t[i] === t[i + nume + 1] && t[i + nume + 1] === t[i + 2 * nume + 2]) {
+            console.log('check diagonals')
+            return true;
+            }
+        }
+        //-check diagonals
+       for(var i = 0 , j = nume - 1; i <= number; i++ ) {
+        if(t[i] !== undefined && t[i] === t[i + j] && t[i + j] === t[i + 2 * j]) {
+            console.log('-check diagonals')
+            return true;
+            }
+        }
+    }
 }    
 
 
