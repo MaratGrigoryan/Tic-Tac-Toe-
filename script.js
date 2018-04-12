@@ -35,17 +35,39 @@ function ai(){
     var id = Math.floor(Math.random() * number);
     t[id] ? ai () : move(id, 'ai');
 }
-
+this.board = [];
+this.result = [];
 function checkEnd(){
-    if(t[0] == "ai" && t[1] == "ai" && t[2] == "ai" || t[0] == "player" && t[1] == "player" && t[2] == "player" ) return true;
-    if(t[3] == "ai" && t[4] == "ai" && t[5] == "ai" || t[3] == "player" && t[4] == "player" && t[5] == "player" ) return true;
-    if(t[6] == "ai" && t[7] == "ai" && t[8] == "ai" || t[6] == "player" && t[7] == "player" && t[8] == "player" ) return true;
-    if(t[0] == "ai" && t[3] == "ai" && t[6] == "ai" || t[0] == "player" && t[3] == "player" && t[6] == "player" ) return true;
-    if(t[1] == "ai" && t[4] == "ai" && t[7] == "ai" || t[1] == "player" && t[4] == "player" && t[7] == "player" ) return true;
-    if(t[2] == "ai" && t[5] == "ai" && t[8] == "ai" || t[2] == "player" && t[5] == "player" && t[8] == "player" ) return true;
-    if(t[0] == "ai" && t[4] == "ai" && t[8] == "ai" || t[0] == "player" && t[4] == "player" && t[8] == "player" ) return true;
-    if(t[2] == "ai" && t[4] == "ai" && t[6] == "ai" || t[2] == "player" && t[4] == "player" && t[6] == "player" ) return true;
-    if(t[0] && t[1] && t[2] && t[3] && t[4] && t[5] && t[6] && t[7] && t[8]) return true;
+    var nume = parseInt(num)
+        //check rows
+        for(var i = 0; i <= number; i++) {
+            if(t[i] !== undefined && t[i] === t[i + 1] && t[i + 1] === t[i + 2] && t[i + 2] === t[i + 3]) {
+               console.log("check rows")
+                return true;
+            }
+        }
+        //check columns
+        for(var i = 0; i <= number; i++) {
+            if(t[i] !== undefined && t[i] === t[i + nume] && t[i + nume] === t[i + 2 * nume] && t[i + 2 * nume] === t[i + 3 * nume]) {
+               console.log('check columns' )
+                return true;
+            }
+        }
+
+        //check diagonals
+       for(var i = 0 ; i <= number ; i++ ) {
+        if(t[i] !== undefined && t[i] == t[i + nume + 1] && t[i + nume + 1] === t[i + 2 * nume + 2] && t[i + 2 * nume + 2] === t[i + 3 * nume + 3]) {
+            console.log('check diagonals')
+            return true;
+            }
+        }
+        //-check diagonals
+       for(var i = 0 , j = nume - 1; i <= number; i++ ) {
+        if(t[i] !== undefined && t[i] == t[i + j] && t[i + j] === t[i + 2 * j] && t[i + 2 * j] === t[i + 3 * j]) {
+            console.log('-check diagonals')
+            return true;
+            }
+        }
 }    
 
 
